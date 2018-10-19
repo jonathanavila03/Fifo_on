@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,23 +24,23 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     public static final String LOGIN_URL="http://pgw.cl/login.php";
-    public static final String KEY_USER="user";
+    public static final String KEY_USER="username";
     public static final String KEY_PASSWORD="password";
     public static final String LOGIN_SUCCESS="success";
     public static final String SHARED_PREF_NAME="tech";
     public static final String EMAIL_SHARED_PREF="email";
     public static final String LOGGEDIN_SHARED_PREF="loggedin";
-    private EditText username;
+    private EditText user;
     private EditText pass;
-    private ImageView login;
+    private Button login;
     private boolean loggedIn=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        username=(EditText)findViewById(R.id.username);
+        user=(EditText)findViewById(R.id.username);
         pass=(EditText)findViewById(R.id.password);
-        login=(ImageView) findViewById(R.id.login);
+        login=(Button) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-        final String email = username.getText().toString().trim();
+        final String username = user.getText().toString().trim();
         final String password = pass.getText().toString().trim();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL,
@@ -63,11 +64,11 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
 
                             editor.putBoolean(LOGGEDIN_SHARED_PREF, true);
-                            editor.putString(EMAIL_SHARED_PREF, email);
+                            editor.putString(EMAIL_SHARED_PREF, username);
 
                             editor.commit();
 
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, Menuoperador.class);
                             startActivity(intent);
                         }else{
                             Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_LONG).show();
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> prams = new HashMap<>();
-                prams.put(KEY_USER, email);
+                prams.put(KEY_USER, username);
                 prams.put(KEY_PASSWORD, password);
 
                 return prams;
