@@ -168,10 +168,11 @@
         android:id="@+id/imageView11"
         android:layout_width="125dp"
         android:layout_height="13dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3"
-        app:srcCompat="@drawable/labelfechavenci"
-        tools:layout_editor_absoluteX="16dp" />
+        app:srcCompat="@drawable/labelfechavenci" />
 
     <EditText
         android:id="@+id/editText4"
@@ -182,8 +183,8 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
         tools:background="@drawable/edittext"
-        tools:layout_editor_absoluteY="300dp"
         tools:text="Ingresa fecha" />
 
     <Button
@@ -192,10 +193,10 @@
         android:layout_height="47dp"
         android:background="@drawable/selecfecha"
         app:layout_constraintStart_toEndOf="@+id/editText4"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <ImageView
-        android:id="@+id/imageViewfecha"
+        android:id="@+id/imageViewcorrecto"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
@@ -205,13 +206,14 @@
         app:srcCompat="@drawable/correcto" />
 
     <ImageView
-        android:id="@+id/imageViewfecha"
+        android:id="@+id/imageViewincorrecto"
         android:layout_width="18dp"
         android:layout_height="18dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="312dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewcorrecto"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/incorrecto"
-        tools:layout_editor_absoluteX="320dp" />
+        app:srcCompat="@drawable/incorrecto" />
 
     <Button
         android:id="@+id/button8"
