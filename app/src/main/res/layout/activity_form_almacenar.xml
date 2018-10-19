@@ -47,9 +47,9 @@
         android:id="@+id/textViewAlmacenar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="122dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Almacenar"
         android:textColor="@android:color/background_light"
@@ -64,7 +64,7 @@
         android:layout_width="8dp"
         android:layout_height="13.67dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="70dp"
         android:background="@drawable/backpage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
         app:srcCompat="@drawable/labelproducto" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txt_producto"
         android:layout_width="289.94dp"
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
@@ -98,7 +98,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="170dp"
-        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintStart_toEndOf="@+id/txt_producto"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -119,11 +119,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_producto"
         app:srcCompat="@drawable/labelubicacion" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txt_ubicacion"
         android:layout_width="219.95dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
@@ -141,8 +141,8 @@
         android:layout_height="47dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/captureqr"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
+        app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -171,11 +171,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion"
         app:srcCompat="@drawable/labelfechavenci" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txt_fechav"
         android:layout_width="218.72dp"
         android:layout_height="34.73dp"
         android:layout_marginStart="16dp"
@@ -192,7 +192,7 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:background="@drawable/selecfecha"
-        app:layout_constraintStart_toEndOf="@+id/editText4"
+        app:layout_constraintStart_toEndOf="@+id/txt_fechav"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <ImageView
@@ -216,7 +216,7 @@
         app:srcCompat="@drawable/incorrecto" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_gua_alma"
         android:layout_width="279.94dp"
         android:layout_height="30dp"
         android:layout_marginTop="62dp"
@@ -224,10 +224,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fechav" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn_gua"
         android:layout_width="279.94dp"
         android:layout_height="30dp"
         android:layout_marginTop="52dp"
@@ -235,6 +235,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_gua_alma" />
 
 </android.support.constraint.ConstraintLayout>
