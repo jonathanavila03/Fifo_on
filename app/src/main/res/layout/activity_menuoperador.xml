@@ -22,7 +22,7 @@
         android:id="@+id/btn_almacenar"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="250dp"
         android:background="@drawable/btalmacenar"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:layout_width="140dp"
         android:layout_height="109.75dp"
         android:layout_marginTop="250dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="34dp"
         android:background="@drawable/btmover"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,18 +42,18 @@
         android:id="@+id/button2"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="54dp"
         android:background="@drawable/btconsultar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_almacenar" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
         android:layout_marginTop="54dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="34dp"
         android:background="@drawable/btsalidamerca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1" />
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewsantamarta"
+        android:id="@+id/textViewsantamartax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="109dp"
