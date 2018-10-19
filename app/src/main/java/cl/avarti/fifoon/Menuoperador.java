@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class Menuoperador extends AppCompatActivity implements View.OnClickListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +14,7 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
 
         Button btn_alma = (Button)findViewById(R.id.btn_almacenar);
         btn_alma.setOnClickListener(this);
+
     }
     public void onClick(View v)
     {
@@ -29,4 +29,5 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
 }

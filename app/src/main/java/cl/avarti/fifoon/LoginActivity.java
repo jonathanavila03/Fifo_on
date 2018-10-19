@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
     private void login() {
         final String username = user.getText().toString().trim();
         final String password = pass.getText().toString().trim();
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL,
                 new Response.Listener<String>() {
                     @Override
