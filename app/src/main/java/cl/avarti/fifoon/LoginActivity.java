@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final String LOGIN_URL="http://pgw.cl/login.php";
+    public static final String LOGIN_URL="http://52.67.142.80/jsonfifon/login.php";
     public static final String KEY_USER="username";
     public static final String KEY_PASSWORD="password";
     public static final String LOGIN_SUCCESS="success";

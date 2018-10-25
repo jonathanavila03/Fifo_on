@@ -20,7 +20,7 @@ public class FormAlmacenar extends AppCompatActivity {
     EditText edit_fechav;
     Button btn_gua_alma;
     Button btn_gua;
-    private static final String REGISTER_URL="http://pgw.cl/almacenar.php";
+    private static final String REGISTER_URL="http://52.67.142.80/jsonfifon/almacenar.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class FormAlmacenar extends AppCompatActivity {
         btn_gua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                almacenar();
                 Intent intentMenu =new Intent(FormAlmacenar.this,Menuoperador.class);
                 startActivity(intentMenu);
             }
@@ -50,10 +51,10 @@ public class FormAlmacenar extends AppCompatActivity {
         String producto = edit_producto.getText().toString().trim().toLowerCase();
         String ubicacion = edit_ubicacion.getText().toString().trim().toLowerCase();
         String fechav = edit_fechav.getText().toString().trim().toLowerCase();
-        alcenar_pro(producto, ubicacion, fechav);
+        almacenar_pro(producto, ubicacion, fechav);
     }
 
-    private void alcenar_pro(String producto, String ubicacion, String fechav){
+    private void almacenar_pro(String producto, String ubicacion, String fechav){
         String urlSuffix = "?producto=" + producto + "&ubicacion=" + ubicacion + "&fechav=" + fechav;
         class AlmacenarEntrada extends AsyncTask<String, Void, String> {
 
