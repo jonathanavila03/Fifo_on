@@ -81,8 +81,8 @@
 
     <EditText
         android:id="@+id/txt_producto"
-        android:layout_width="289.94dp"
-        android:layout_height="33dp"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ubuntulight"
         android:textColor="@android:color/darker_gray"
@@ -97,8 +97,8 @@
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="170dp"
-        app:layout_constraintStart_toEndOf="@+id/txt_producto"
+        android:layout_marginTop="172dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_micproducto"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -124,7 +124,7 @@
 
     <EditText
         android:id="@+id/txt_ubicacion"
-        android:layout_width="219.95dp"
+        android:layout_width="161dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ubuntulight"
@@ -139,10 +139,10 @@
         android:id="@+id/button6"
         android:layout_width="53dp"
         android:layout_height="47dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/captureqr"
-        app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
-        app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
+        app:layout_constraintStart_toEndOf="@+id/btn_micubicacion"
+        tools:layout_editor_absoluteY="217dp" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -176,8 +176,8 @@
 
     <EditText
         android:id="@+id/txt_fechav"
-        android:layout_width="218.72dp"
-        android:layout_height="34.73dp"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/ubuntulight"
         android:textColor="@android:color/darker_gray"
@@ -192,8 +192,8 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:background="@drawable/selecfecha"
-        app:layout_constraintStart_toEndOf="@+id/txt_fechav"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="284dp" />
 
     <ImageView
         android:id="@+id/imageViewcorrecto"
@@ -236,5 +236,29 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_gua_alma" />
+
+    <Button
+        android:id="@+id/btn_micubicacion"
+        android:layout_width="26dp"
+        android:layout_height="29dp"
+        android:background="@drawable/voz"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
+        tools:layout_editor_absoluteY="230dp" />
+    <Button
+        android:id="@+id/btn_micproducto"
+        android:layout_width="26dp"
+        android:layout_height="29dp"
+        android:background="@drawable/voz"
+        app:layout_constraintStart_toEndOf="@+id/txt_producto"
+        tools:layout_editor_absoluteY="163dp" />
+
+    <Button
+        android:id="@+id/btn_micvencimiento"
+        android:layout_width="25dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/voz"
+        app:layout_constraintStart_toEndOf="@+id/txt_fechav"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
 
 </android.support.constraint.ConstraintLayout>
