@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cl.avarti.fifoon">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".welco1activity" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,9 +24,14 @@
         <activity android:name=".welco3activity" />
         <activity android:name=".Menuoperador" />
         <activity android:name=".FormAlmacenar" />
-        <activity android:name=".FormMover"></activity>
+        <activity android:name=".FormMover" />
+        <activity android:name=".form_consultar"></activity>
     </application>
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
+=======
+
+>>>>>>> 4668e1bd28d610dd8c6d39e848d209a6d9d1d817
 </manifest>
