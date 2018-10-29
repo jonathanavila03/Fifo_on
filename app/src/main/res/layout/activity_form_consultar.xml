@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundmasterform"
+    tools:context=".form_consultar">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="37dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconologo" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="28dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/menuburger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="122dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/ubuntubold"
+        android:text="Santa marta"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAlmacenar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="122dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/ubuntubold"
+        android:text="Consultar mercaderia"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="8dp"
+        android:layout_height="13.67dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/backpage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="56dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/labelubicacion" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/ubuntulight"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        tools:background="@drawable/edittext"
+        tools:text="Ingresa ubicación" />
+
+    <Button
+        android:id="@+id/btn_micubiactual"
+        android:layout_width="25dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/voz"
+        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="53dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/captureqr"
+        app:layout_constraintStart_toEndOf="@+id/btn_micubiactual"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="19dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/correcto" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/incorrecto" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="- Ó -"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        tools:fontFamily="@font/ubunturegular"
+        tools:textColor="@color/colorproyect" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="53dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/labelproducto" />
+
+    <EditText
+        android:id="@+id/txt_producto"
+        android:layout_width="161dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/ubuntulight"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        tools:background="@drawable/edittext"
+        tools:text="Código producto" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="19dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_micproducto"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/correcto" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/incorrecto" />
+
+    <Button
+        android:id="@+id/btn_micproducto"
+        android:layout_width="26dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/voz"
+        app:layout_constraintStart_toEndOf="@+id/txt_producto"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="279dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/btnconsultarform"
+        android:text="Consultar"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_producto"
+        tools:fontFamily="@font/ubuntubold" />
+
+
+</android.support.constraint.ConstraintLayout>
