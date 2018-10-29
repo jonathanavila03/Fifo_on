@@ -131,6 +131,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:buttonTint="@color/colorseleccion"
+        android:fontFamily="@font/ubuntubold"
+        android:text="Picking"
+        android:textColor="@color/colorproyect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:buttonTint="@color/colorseleccion"
+        android:fontFamily="@font/ubuntubold"
+        android:text="Mercadería dañada"
+        android:textColor="@color/colorproyect"
+        app:layout_constraintStart_toEndOf="@+id/radioButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="82dp"
+        android:fontFamily="@font/ubuntulight"
+        android:text="Selecciona el motivo de la salida"
+        android:textColor="@color/colorproyect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="279dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/btnconsultarform"
+        android:text="Guardar salida"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton2"
+        tools:fontFamily="@font/ubuntubold" />
 
 
 </android.support.constraint.ConstraintLayout>
