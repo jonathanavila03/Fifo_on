@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".welco1activity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -25,7 +25,8 @@
         <activity android:name=".Menuoperador" />
         <activity android:name=".FormAlmacenar" />
         <activity android:name=".FormMover" />
-        <activity android:name=".form_consultar"></activity>
+        <activity android:name=".form_consultar" />
+        <activity android:name=".form_Salida"></activity>
     </application>
 
 </manifest>
