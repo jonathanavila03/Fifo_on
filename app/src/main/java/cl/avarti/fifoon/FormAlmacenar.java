@@ -9,17 +9,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.Activity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import com.blikoon.qrcodescanner.QrCodeActivity;
 public class FormAlmacenar extends AppCompatActivity {
+    private static final int REQUEST_CODE_QR_SCAN = 101;
     EditText edit_producto;
     EditText edit_ubicacion;
     EditText edit_fechav;
     Button btn_gua_alma;
     Button btn_gua;
+    Button btn_qr;
     private static final String REGISTER_URL="http://52.67.142.80/jsonfifon/almacenar.php";
 
     @Override
@@ -43,6 +47,14 @@ public class FormAlmacenar extends AppCompatActivity {
                 almacenar();
                 Intent intentMenu =new Intent(FormAlmacenar.this,Menuoperador.class);
                 startActivity(intentMenu);
+            }
+        });
+        btn_qr = (Button) findViewById(R.id.qr);
+        btn_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(FormAlmacenar.this, QrCodeActivity.class);
+                startActivityForResult(i, REQUEST_CODE_QR_SCAN);
             }
         });
     }
@@ -93,5 +105,24 @@ public class FormAlmacenar extends AppCompatActivity {
         }
         AlmacenarEntrada ur=new AlmacenarEntrada();
         ur.execute(urlSuffix);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode != Activity.RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta", Toast.LENGTH_SHORT).show();
+            String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
+            if (resultado != null) {
+                Toast.makeText(getApplicationContext(), "No se pudo escanear el código QR", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+        if (requestCode == REQUEST_CODE_QR_SCAN) {
+            if (data != null) {
+                String lectura = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
+                Toast.makeText(getApplicationContext(), "Leído: " + lectura, Toast.LENGTH_SHORT).show();
+                edit_ubicacion.setText(Toast.LENGTH_SHORT);
+
+            }
+        }
     }
 }
