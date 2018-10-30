@@ -17,6 +17,9 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         Button btn_consultar = (Button)findViewById(R.id.btn_consultar);
         Button btn_salida = (Button)findViewById(R.id.btn_salida);
         btn_alma.setOnClickListener(this);
+        btn_consultar.setOnClickListener(this);
+        btn_mover.setOnClickListener(this);
+        btn_salida.setOnClickListener(this);
 
     }
     public void onClick(View v)
