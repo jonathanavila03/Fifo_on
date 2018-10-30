@@ -2,6 +2,8 @@ package cl.avarti.fifoon;
 
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -12,11 +14,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.app.Activity;
 import com.loopj.android.http.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import android.widget.DatePicker;
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -38,6 +44,7 @@ public class FormAlmacenar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_almacenar);
 
@@ -45,6 +52,12 @@ public class FormAlmacenar extends AppCompatActivity {
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
         btn_calendar = (Button) findViewById(R.id.button7);
+        btn_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         grabar_prod = (Button) findViewById(R.id.btn_micproducto);
         grabar_prod.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_mover"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
         android:layout_marginTop="250dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_consultar"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
         android:layout_marginStart="34dp"
@@ -49,14 +49,14 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_almacenar" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_salida"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
-        android:layout_marginTop="54dp"
         android:layout_marginEnd="34dp"
+        android:layout_marginTop="54dp"
         android:background="@drawable/btsalidamerca"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_mover" />
 
     <Button
         android:id="@+id/button5"
