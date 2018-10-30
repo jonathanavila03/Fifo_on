@@ -13,6 +13,9 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_menuoperador);
 
         Button btn_alma = (Button)findViewById(R.id.btn_almacenar);
+        Button btn_mover = (Button)findViewById(R.id.btn_mover);
+        Button btn_consultar = (Button)findViewById(R.id.btn_consultar);
+        Button btn_salida = (Button)findViewById(R.id.btn_salida);
         btn_alma.setOnClickListener(this);
 
     }
@@ -21,6 +24,21 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         if(v.getId()==R.id.btn_almacenar)
         {
             Intent intent = new Intent(Menuoperador.this, FormAlmacenar.class);
+            startActivity(intent);
+        }
+        if(v.getId()==R.id.btn_mover)
+        {
+            Intent intent = new Intent(Menuoperador.this, FormMover.class);
+            startActivity(intent);
+        }
+        if(v.getId()==R.id.btn_consultar)
+        {
+            Intent intent = new Intent(Menuoperador.this, form_consultar.class);
+            startActivity(intent);
+        }
+        if(v.getId()==R.id.btn_salida)
+        {
+            Intent intent = new Intent(Menuoperador.this, form_Salida.class);
             startActivity(intent);
         }
     }

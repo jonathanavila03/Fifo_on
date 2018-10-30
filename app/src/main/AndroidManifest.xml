@@ -10,9 +10,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 
     <application
@@ -30,7 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".welco1activity" />
-        <activity android:name=".LoginActivity"/>
         <activity android:name=".welco2activity" />
         <activity android:name=".welco3activity" />
         <activity android:name=".Menuoperador" />

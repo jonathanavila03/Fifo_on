@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
         user=(EditText)findViewById(R.id.username);
         pass=(EditText)findViewById(R.id.password);
         login=(Button) findViewById(R.id.login);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         loggedIn = sharedPreferences.getBoolean(LOGGEDIN_SHARED_PREF, false);
         if(loggedIn){
-            Intent intent = new Intent(MainActivity.this, welco0activity.class);
+            Intent intent = new Intent(MainActivity.this, Menuoperador.class);
             startActivity(intent);
         }
     }
