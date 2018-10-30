@@ -1,8 +1,10 @@
 package cl.avarti.fifoon;
 
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,9 @@ import android.app.Activity;
 import com.loopj.android.http.*;
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -24,8 +29,12 @@ public class FormAlmacenar extends AppCompatActivity {
     Button btn_gua_alma;
     Button btn_gua;
     Button btn_qr;
-
-    private static final String ALMA_URL="http://52.67.142.80/jsonfifon/almacenar.php?";
+    Button grabar_prod;
+    Button grabar_ubi;
+    String strSpeech2Text;
+    Button btn_calendar;
+    private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
+    private static final String ALMA_URL="http://fifo.esy.es/almacenar.php?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,25 @@ public class FormAlmacenar extends AppCompatActivity {
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
+        btn_calendar = (Button) findViewById(R.id.button7);
+        grabar_prod = (Button) findViewById(R.id.btn_micproducto);
+        grabar_prod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                grabarvoz();
+                edit_producto.setText(strSpeech2Text);
+                strSpeech2Text = "";
+            }
+        });
+        grabar_ubi = (Button) findViewById(R.id.btn_micubicacion);
+        grabar_ubi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                grabarvoz();
+                edit_ubicacion.setText(strSpeech2Text);
+                strSpeech2Text = "";
+            }
+        });
         cliente = new AsyncHttpClient();
         btn_gua_alma = (Button) findViewById(R.id.btn_gua_alma);
         btn_gua_alma.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +76,8 @@ public class FormAlmacenar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 almacenar();
+                Intent intent = new Intent(FormAlmacenar.this, Menuoperador.class);
+                startActivity(intent);
             }
         });
         btn_qr = (Button) findViewById(R.id.qr);
@@ -58,6 +88,7 @@ public class FormAlmacenar extends AppCompatActivity {
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN);
             }
         });
+
     }
 
 
@@ -81,7 +112,6 @@ public class FormAlmacenar extends AppCompatActivity {
                         edit_ubicacion.setText("");
                     }
                 }
-
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
@@ -89,8 +119,6 @@ public class FormAlmacenar extends AppCompatActivity {
             });
         }
 }
-
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode != Activity.RESULT_OK) {
@@ -109,5 +137,30 @@ public class FormAlmacenar extends AppCompatActivity {
 
             }
         }
+        if (requestCode == RECOGNIZE_SPEECH_ACTIVITY) {
+            if (resultCode == RESULT_OK && null != data) {
+                ArrayList<String> speech = data
+                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                strSpeech2Text = speech.get(0);}
+            if (resultCode != RESULT_OK) {
+                Toast.makeText(getApplicationContext(), "Por Favor volver a intentarlo.", Toast.LENGTH_SHORT).show();}
+        }
     }
+    void grabarvoz()
+    {
+        Intent intentActionRecognizeSpeech = new Intent(
+                RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        // Configura el Lenguaje (Español-México)
+        intentActionRecognizeSpeech.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL, "es-MX");
+        try {
+            startActivityForResult(intentActionRecognizeSpeech,
+                    RECOGNIZE_SPEECH_ACTIVITY);
+        } catch ( Exception a) {
+            Toast.makeText(getApplicationContext(),
+                    "Tú dispositivo no soporta el reconocimiento por voz",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
