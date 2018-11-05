@@ -62,6 +62,7 @@ public class FormAlmacenar extends AppCompatActivity {
         grabar_prod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strSpeech2Text = "";
                 grabarvoz();
                 edit_producto.setText(strSpeech2Text);
                 strSpeech2Text = "";
@@ -71,6 +72,7 @@ public class FormAlmacenar extends AppCompatActivity {
         grabar_ubi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                strSpeech2Text = "";
                 grabarvoz();
                 edit_ubicacion.setText(strSpeech2Text);
                 strSpeech2Text = "";
@@ -134,29 +136,30 @@ public class FormAlmacenar extends AppCompatActivity {
 }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (resultCode != Activity.RESULT_OK) {
-            Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta", Toast.LENGTH_SHORT).show();
-            String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
-            if (resultado != null) {
-                Toast.makeText(getApplicationContext(), "No se pudo escanear el código QR", Toast.LENGTH_SHORT).show();
-            }
-            return;
-        }
+
         if (requestCode == REQUEST_CODE_QR_SCAN) {
             if (data != null) {
                 String lectura = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
                 Toast.makeText(getApplicationContext(), "Leído: " + lectura, Toast.LENGTH_SHORT).show();
-                edit_ubicacion.setText(Toast.LENGTH_SHORT);
+                edit_ubicacion.setText(lectura);
 
+            }}
+            else if (requestCode == REQUEST_CODE_QR_SCAN && data == null)
+            {
+                Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta", Toast.LENGTH_SHORT).show();
+                String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
+                return;
             }
-        }
+
+
         if (requestCode == RECOGNIZE_SPEECH_ACTIVITY) {
             if (resultCode == RESULT_OK && null != data) {
                 ArrayList<String> speech = data
                         .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 strSpeech2Text = speech.get(0);}
-            if (resultCode != RESULT_OK) {
+            else if (requestCode == RECOGNIZE_SPEECH_ACTIVITY && data == null){
                 Toast.makeText(getApplicationContext(), "Por Favor volver a intentarlo.", Toast.LENGTH_SHORT).show();}
+                return;
         }
     }
     void grabarvoz()
