@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="122dp"
         android:layout_marginStart="109dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Almacenar"
         android:textColor="@android:color/background_light"
@@ -64,7 +64,7 @@
         android:layout_width="8dp"
         android:layout_height="13.67dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/backpage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

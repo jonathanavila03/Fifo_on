@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="122dp"
         android:layout_marginStart="109dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Menu operador"
         android:textColor="@android:color/background_light"
