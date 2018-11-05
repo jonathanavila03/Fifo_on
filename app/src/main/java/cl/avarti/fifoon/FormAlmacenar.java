@@ -146,7 +146,7 @@ public class FormAlmacenar extends AppCompatActivity {
             }}
             else if (requestCode == REQUEST_CODE_QR_SCAN && data == null)
             {
-                Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta, intente nuevamente.", Toast.LENGTH_SHORT).show();
                 String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
                 return;
             }
