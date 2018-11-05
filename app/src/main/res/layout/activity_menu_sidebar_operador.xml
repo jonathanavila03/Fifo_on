@@ -8,7 +8,7 @@
     tools:context=".MenuSidebarOperador">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnsidebarout"
         android:layout_width="28dp"
         android:layout_height="23dp"
         android:layout_marginEnd="16dp"

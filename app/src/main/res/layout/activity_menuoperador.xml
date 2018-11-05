@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_mover" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnsidebarin"
         android:layout_width="28dp"
         android:layout_height="23dp"
         android:layout_marginTop="10dp"

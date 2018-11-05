@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class Menuoperador extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnsidebar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,16 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         btn_consultar.setOnClickListener(this);
         btn_mover.setOnClickListener(this);
         btn_salida.setOnClickListener(this);
+
+        btnsidebar = (Button)findViewById(R.id.btnsidebarin);
+
+        btnsidebar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abc = new Intent(Menuoperador.this, MenuSidebarOperador.class);
+                startActivity(abc);
+            }
+        });
 
     }
     public void onClick(View v)
