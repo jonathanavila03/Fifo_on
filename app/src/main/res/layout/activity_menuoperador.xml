@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/masterpage"
     android:layout_gravity="center"
+    android:background="@drawable/masterpage"
     tools:context=".Menuoperador">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_width="140dp"
         android:layout_height="109.75dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/btalmacenar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,8 +32,8 @@
         android:id="@+id/btn_mover"
         android:layout_width="140dp"
         android:layout_height="109.75dp"
-        android:layout_marginTop="250dp"
         android:layout_marginEnd="34dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/btmover"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,8 +62,8 @@
         android:id="@+id/btnsidebarin"
         android:layout_width="28dp"
         android:layout_height="23dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/menuburger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -72,15 +72,13 @@
         android:id="@+id/textViewsantamartax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="122dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Santa marta"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintEnd_toStartOf="@+id/btnsidebarin"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,16 +86,14 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="122dp"
-        android:layout_marginStart="109dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Menu operador"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
