@@ -98,14 +98,6 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        loggedIn = sharedPreferences.getBoolean(LOGGEDIN_SHARED_PREF, false);
-        if(loggedIn){
-            Intent intent = new Intent(MainActivity.this, Menuoperador.class);
-            startActivity(intent);
-        }
-    }
+
+    
 }
