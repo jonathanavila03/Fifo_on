@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Menuoperador extends AppCompatActivity implements View.OnClickListener {
 
     Button btnsidebar;
+
+    private TextView datologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,7 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         btn_consultar.setOnClickListener(this);
         btn_mover.setOnClickListener(this);
         btn_salida.setOnClickListener(this);
-
+        datologin = (TextView)findViewById(R.id.parametrologin);
         btnsidebar = (Button)findViewById(R.id.btnsidebarin);
 
         btnsidebar.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +36,11 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
                 startActivity(abc);
             }
         });
+
+        //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
+        String dato = getIntent().getStringExtra("dato");
+        //INSERTAR DATO OBTENIDO EN TEXTVIEW
+        datologin.setText("Bienvenido: " + dato);
 
     }
     public void onClick(View v)

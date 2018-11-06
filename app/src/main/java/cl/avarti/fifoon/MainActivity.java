@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText pass;
     private Button login;
     private boolean loggedIn=false;
+    //CREACION VARIABLE PARAMETRO ENTRE ACTIVITY
+    private EditText username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 login();
             }
         });
+        username = (EditText)findViewById(R.id.username);
     }
 
     private void login() {
@@ -68,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                             editor.commit();
 
                             Intent intent = new Intent(MainActivity.this, Menuoperador.class);
+                            //CAPTURA PARAMETRO USUARIO DEL LOGIN PARA LLEVARLO A OTRO ACTIVITY
+                            intent.putExtra("dato", username);
+                            //-----
                             startActivity(intent);
                         }else{
                             Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_LONG).show();
