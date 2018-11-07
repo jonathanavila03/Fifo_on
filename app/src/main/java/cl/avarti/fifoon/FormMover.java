@@ -57,7 +57,7 @@ public class FormMover extends AppCompatActivity {
         }else {
             String ubica_ant = ubi_antigua.getText().toString();
             String ubica_nueva = ubi_antigua.getText().toString();
-            String usuario = "";
+            String usuario = getIntent().getStringExtra("param");
 
             String parametros =  "ubi_nueva="+ubica_ant+"&ubi_antigua="+ubica_nueva+"&usuario="+usuario;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {

@@ -52,7 +52,7 @@ public class FormAlmacenar extends AppCompatActivity {
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
-        btn_calendar = (Button) findViewById(R.id.button7);
+        btn_calendar = (Button) findViewById(R.id.btn_calendar);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String param = getIntent().getStringExtra("param");
@@ -60,7 +60,7 @@ public class FormAlmacenar extends AppCompatActivity {
         datologin.setText("Bienvenido: " + param);
 
 
-        btn_calendar = (Button) findViewById(R.id.qr_ubi_nue);
+        btn_calendar = (Button) findViewById(R.id.btn_calendar);
 
         btn_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,8 +118,9 @@ public class FormAlmacenar extends AppCompatActivity {
             String produ = edit_producto.getText().toString();
             String ubi = edit_ubicacion.getText().toString();
             String fechav = edit_fechav.getText().toString();
+            String usr = getIntent().getStringExtra("param");
 
-            String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav;
+            String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav+"&usuario="+usr;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

@@ -49,7 +49,7 @@ public class form_Salida extends AppCompatActivity {
         ubicacion = (EditText) findViewById(R.id.txt_ubicacion);
         picking = (RadioButton) findViewById(R.id.radio_picking);
         dañado = (RadioButton) findViewById(R.id.radio_dañada);
-        guardar = (Button) findViewById(R.id.btn_guardar);
+        guardar = (Button) findViewById(R.id.btn_guardar_salida);
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +71,7 @@ public class form_Salida extends AppCompatActivity {
                 comentario = "Mercaderia dañada";
             }
 
-            String usuario = "";
+            String usuario = getIntent().getStringExtra("param");
 
             String parametros =  "ubicacion="+ubi+"&comentario="+comentario+"&usuario="+usuario;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {

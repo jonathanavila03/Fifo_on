@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/labelubicacionactual" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txt_ubi_nue"
         android:layout_width="161dp"
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
@@ -106,7 +106,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="62dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_nue"
         app:srcCompat="@drawable/labelnuevaubicacion" />
 
     <EditText
@@ -124,7 +124,7 @@
         tools:text="Ingresa nueva ubicación" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_calendar"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -139,7 +139,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="284dp"
-        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintStart_toEndOf="@+id/btn_calendar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -154,7 +154,7 @@
         app:srcCompat="@drawable/incorrecto" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btn_guardar"
         android:layout_width="279.54dp"
         android:layout_height="30dp"
         android:layout_marginTop="62dp"
@@ -170,7 +170,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubi_nue"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
 
