@@ -2,6 +2,7 @@ package cl.avarti.fifoon;
 
 
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -16,6 +17,7 @@ import com.loopj.android.http.*;
 import com.blikoon.qrcodescanner.QrCodeActivity;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -30,10 +32,10 @@ public class FormAlmacenar extends AppCompatActivity {
     Button btn_qr;
     Button grabar_prod;
     Button grabar_ubi;
-    String strSpeech2Text;
     Button btn_calendar;
-    private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     private static final String ALMA_URL="http://fifo.esy.es/almacenar.php?";
+    private static final int REQ_CODE_SPEECH_INPUT=100;
+    private static final int REQ_CODE_SPEECH_INPUT2=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +57,14 @@ public class FormAlmacenar extends AppCompatActivity {
         grabar_prod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grabarvoz();
-                edit_producto.setText(strSpeech2Text);
-                strSpeech2Text = "";
+                obtenerVoz1();
             }
         });
         grabar_ubi = (Button) findViewById(R.id.btn_micubicacion);
         grabar_ubi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grabarvoz();
-                edit_ubicacion.setText(strSpeech2Text);
-                strSpeech2Text = "";
+                obtenerVoz2();
             }
         });
         cliente = new AsyncHttpClient();
@@ -97,8 +95,7 @@ public class FormAlmacenar extends AppCompatActivity {
 
     }
 
-
-    void almacenar(){
+   private void almacenar(){
 
         if (edit_producto.getText().toString().isEmpty() || edit_ubicacion.getText().toString().isEmpty() || edit_fechav.getText().toString().isEmpty()){
             Toast.makeText(FormAlmacenar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
@@ -127,7 +124,6 @@ public class FormAlmacenar extends AppCompatActivity {
 }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-
         if (requestCode == REQUEST_CODE_QR_SCAN) {
             if (data != null) {
                 String lectura = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
@@ -142,32 +138,47 @@ public class FormAlmacenar extends AppCompatActivity {
                 return;
             }
 
+         if (requestCode == REQ_CODE_SPEECH_INPUT){
+            if (resultCode == RESULT_OK && null != data)
+            {
+                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                edit_producto.setText(result.get(0));
+            }
+         }
+        if (requestCode == REQ_CODE_SPEECH_INPUT2){
+            if (resultCode == RESULT_OK && null != data)
+            {
+                ArrayList<String> result2 = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                edit_ubicacion.setText(result2.get(0));
+            }
+        }
 
-        if (requestCode == RECOGNIZE_SPEECH_ACTIVITY) {
-            if (resultCode == RESULT_OK && null != data) {
-                ArrayList<String> speech = data
-                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                strSpeech2Text = speech.get(0);}
-            else if (requestCode == RECOGNIZE_SPEECH_ACTIVITY && data == null){
-                Toast.makeText(getApplicationContext(), "Por Favor volver a intentarlo.", Toast.LENGTH_SHORT).show();}
-                return;
+    }
+    private void obtenerVoz1(){
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hola favor dime los parametros");
+        try{
+            startActivityForResult(intent,REQ_CODE_SPEECH_INPUT);
+        }
+        catch (ActivityNotFoundException e1){
+
         }
     }
-    void grabarvoz()
-    {
-        Intent intentActionRecognizeSpeech = new Intent(
-                RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        // Configura el Lenguaje (Español-México)
-        intentActionRecognizeSpeech.putExtra(
-                RecognizerIntent.EXTRA_LANGUAGE_MODEL, "es-MX");
-        try {
-            startActivityForResult(intentActionRecognizeSpeech,
-                    RECOGNIZE_SPEECH_ACTIVITY);
-        } catch ( Exception a) {
-            Toast.makeText(getApplicationContext(),
-                    "Tú dispositivo no soporta el reconocimiento por voz",
-                    Toast.LENGTH_SHORT).show();
+    private void obtenerVoz2(){
+        Intent intent2 = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent2.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent2.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent2.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hola favor dime los parametros");
+        try{
+            startActivityForResult(intent2,REQ_CODE_SPEECH_INPUT2);
+        }
+        catch (ActivityNotFoundException e1){
+
         }
     }
+
+
 
 }
