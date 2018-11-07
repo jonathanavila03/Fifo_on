@@ -34,6 +34,7 @@ public class FormAlmacenar extends AppCompatActivity {
     Button grabar_prod;
     Button grabar_ubi;
     Button btn_calendar;
+    String param;
     private TextView datologin;
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
@@ -55,7 +56,7 @@ public class FormAlmacenar extends AppCompatActivity {
         btn_calendar = (Button) findViewById(R.id.qr_nue);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
-        String param = getIntent().getStringExtra("param");
+         param = getIntent().getStringExtra("param");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + param);
 
@@ -118,9 +119,9 @@ public class FormAlmacenar extends AppCompatActivity {
             String produ = edit_producto.getText().toString();
             String ubi = edit_ubicacion.getText().toString();
             String fechav = edit_fechav.getText().toString();
-            String usr = getIntent().getStringExtra("param");
 
-            String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav+"&usuario="+usr;
+
+            String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav+"&usuario="+param;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

@@ -51,7 +51,7 @@ public class FormMover extends AppCompatActivity {
         datologin.setText("Bienvenido: " + param);
 
 
-        ubi_antigua =(EditText) findViewById(R.id.txt_ubi_ant);
+        ubi_antigua =(EditText) findViewById(R.id.txt_ubi_org);
         ubi_nueva = (EditText) findViewById(R.id.txt_ubi_nue);
         btn_guardar= (Button) findViewById(R.id.btn_guardar_mover);
         btn_guardar.setOnClickListener(new View.OnClickListener() {
