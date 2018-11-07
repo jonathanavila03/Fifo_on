@@ -31,7 +31,6 @@ public class FormAlmacenar extends AppCompatActivity {
     private static final int REQUEST_CODE_QR_SCAN = 101;
 
     private static final String TAG = "FormAlmacenar";
-    private EditText mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private AsyncHttpClient cliente;
@@ -119,7 +118,6 @@ public class FormAlmacenar extends AppCompatActivity {
             }
         });
 
-        mDisplayDate = (EditText)findViewById(R.id.txt_fechav);
         btn_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +131,13 @@ public class FormAlmacenar extends AppCompatActivity {
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
                         day,month,year);
+
+                Calendar c = Calendar.getInstance();
+                c.set(Calendar.HOUR_OF_DAY, 0);
+                c.set(Calendar.MINUTE, 0);
+                c.set(Calendar.SECOND, 0);
+
+                dialog.updateDate(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -144,7 +149,7 @@ public class FormAlmacenar extends AppCompatActivity {
                 month = month + 1;
                 Log.d(TAG, "onDateSet: dd/mm/aaaa: " + day + "/" + month + "/" + year);
 
-                String fecha = day + "/" + month + "/" + year;
+                String fecha = year + "/" + month + "/" + day;
                 edit_fechav.setText(fecha);
             }
         };
