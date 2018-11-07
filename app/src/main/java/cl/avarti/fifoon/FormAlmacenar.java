@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import com.loopj.android.http.*;
@@ -39,6 +40,7 @@ public class FormAlmacenar extends AppCompatActivity {
     Button grabar_ubi;
     String strSpeech2Text;
     Button btn_calendar;
+    private TextView datologin;
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     private static final String ALMA_URL="http://fifo.esy.es/almacenar.php?";
 
@@ -48,10 +50,18 @@ public class FormAlmacenar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_almacenar);
 
+        datologin = (TextView)findViewById(R.id.parametrologinalma);
+
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
         btn_calendar = (Button) findViewById(R.id.button7);
+
+        //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
+        String param = getIntent().getStringExtra("param");
+        //INSERTAR DATO OBTENIDO EN TEXTVIEW
+        datologin.setText("Bienvenido: " + param);
+
         btn_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
