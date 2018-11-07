@@ -3,6 +3,9 @@ package cl.avarti.fifoon;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.widget.TextView;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +22,7 @@ import java.lang.reflect.Array;
 import cz.msebera.android.httpclient.Header;
 
 
+
 public class form_Salida extends AppCompatActivity {
     EditText ubicacion;
     RadioButton picking;
@@ -27,10 +31,21 @@ public class form_Salida extends AppCompatActivity {
     private static final String ALMA_URL="http://fifo.esy.es/salida.php?";
     private AsyncHttpClient cliente;
 
+    private TextView datologin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form__salida);
+
+
+        datologin = (TextView)findViewById(R.id.parametrologinsalida);
+
+        //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
+        String param = getIntent().getStringExtra("param");
+        //INSERTAR DATO OBTENIDO EN TEXTVIEW
+        datologin.setText("Bienvenido: " + param);
+
         ubicacion = (EditText) findViewById(R.id.txt_ubicacion);
         picking = (RadioButton) findViewById(R.id.radio_picking);
         dañado = (RadioButton) findViewById(R.id.radio_dañada);
@@ -41,6 +56,7 @@ public class form_Salida extends AppCompatActivity {
                 salida();
             }
         });
+
 
     }
     void salida(){
