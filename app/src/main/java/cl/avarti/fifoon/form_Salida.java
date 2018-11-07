@@ -25,6 +25,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class form_Salida extends AppCompatActivity {
     EditText ubicacion;
+    String param;
     RadioButton picking;
     RadioButton dañado;
     Button guardar;
@@ -42,11 +43,11 @@ public class form_Salida extends AppCompatActivity {
         datologin = (TextView)findViewById(R.id.parametrologinsalida);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
-        String param = getIntent().getStringExtra("param");
+         param = getIntent().getStringExtra("param");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + param);
-
-        ubicacion = (EditText) findViewById(R.id.txt_ubicacion);
+        cliente = new AsyncHttpClient();
+        ubicacion = (EditText) findViewById(R.id.txt_ubi_org);
         picking = (RadioButton) findViewById(R.id.radio_picking);
         dañado = (RadioButton) findViewById(R.id.radio_dañada);
         guardar = (Button) findViewById(R.id.btn_guardar_salida);
@@ -71,14 +72,13 @@ public class form_Salida extends AppCompatActivity {
                 comentario = "Mercaderia dañada";
             }
 
-            String usuario = getIntent().getStringExtra("param");
 
-            String parametros =  "ubicacion="+ubi+"&comentario="+comentario+"&usuario="+usuario;
+            String parametros =  "ubicacion="+ubi+"&comentario="+comentario+"&usuario="+param;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     if (statusCode == 200){
-                        Toast.makeText(form_Salida.this, "Registro Agregado Correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(form_Salida.this, "Salida Registrada Correctamente", Toast.LENGTH_SHORT).show();
                         ubicacion.setText("");
 
 

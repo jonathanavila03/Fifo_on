@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/labelubicacionactual" />
 
     <EditText
-        android:id="@+id/txt_ubi_ant"
+        android:id="@+id/txt_ubi_org"
         android:layout_width="161dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
@@ -85,7 +85,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/txt_ubi_ant"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubi_org"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <ImageView
@@ -157,7 +157,7 @@
         android:text="Selecciona el motivo de la salida"
         android:textColor="@color/colorproyect"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_ant" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_org" />
 
     <Button
         android:id="@+id/btn_guardar_salida"
