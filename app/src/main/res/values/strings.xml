@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FIF ON</string>
     <string name="description">Moving your business</string>
+    <string name="exportarexcel">Exportar a Excel</string>
 </resources>
