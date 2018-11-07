@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/labelubicacionactual" />
 
     <EditText
-        android:id="@+id/txt_ubi_nue"
+        android:id="@+id/txt_ubi_ant"
         android:layout_width="161dp"
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
@@ -70,7 +70,7 @@
         tools:text="Ingresa ubicación" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/qr_ant"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -85,7 +85,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/qr_ant"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -106,11 +106,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="62dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_nue"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_ant"
         app:srcCompat="@drawable/labelnuevaubicacion" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txt_ubi_nue"
         android:layout_width="161dp"
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
@@ -124,7 +124,7 @@
         tools:text="Ingresa nueva ubicación" />
 
     <Button
-        android:id="@+id/btn_calendar"
+        android:id="@+id/qr_nue"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -139,7 +139,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="284dp"
-        app:layout_constraintStart_toEndOf="@+id/btn_calendar"
+        app:layout_constraintStart_toEndOf="@+id/qr_nue"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -154,7 +154,7 @@
         app:srcCompat="@drawable/incorrecto" />
 
     <Button
-        android:id="@+id/btn_guardar"
+        android:id="@+id/btn_guardar_mover"
         android:layout_width="279.54dp"
         android:layout_height="30dp"
         android:layout_marginTop="62dp"
@@ -162,7 +162,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_nue" />
 
     <Button
         android:id="@+id/btn_micubiactual"
@@ -170,7 +170,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/txt_ubi_nue"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubi_ant"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
 
@@ -180,7 +180,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/editText4"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubi_nue"
         app:layout_constraintTop_toBottomOf="@+id/imageView13" />
 
     <TextView

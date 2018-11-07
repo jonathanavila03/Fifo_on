@@ -52,7 +52,7 @@ public class FormAlmacenar extends AppCompatActivity {
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
-        btn_calendar = (Button) findViewById(R.id.btn_calendar);
+        btn_calendar = (Button) findViewById(R.id.qr_nue);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String param = getIntent().getStringExtra("param");
@@ -60,7 +60,7 @@ public class FormAlmacenar extends AppCompatActivity {
         datologin.setText("Bienvenido: " + param);
 
 
-        btn_calendar = (Button) findViewById(R.id.btn_calendar);
+        btn_calendar = (Button) findViewById(R.id.qr_nue);
 
         btn_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
