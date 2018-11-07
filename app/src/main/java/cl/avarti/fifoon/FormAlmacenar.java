@@ -1,14 +1,18 @@
 package cl.avarti.fifoon;
 
 
-
+import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,12 +22,18 @@ import com.loopj.android.http.*;
 import com.blikoon.qrcodescanner.QrCodeActivity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
 
 public class FormAlmacenar extends AppCompatActivity {
     private static final int REQUEST_CODE_QR_SCAN = 101;
+
+    private static final String TAG = "FormAlmacenar";
+    private EditText mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
     private AsyncHttpClient cliente;
     EditText edit_producto;
     EditText edit_ubicacion;
@@ -53,7 +63,7 @@ public class FormAlmacenar extends AppCompatActivity {
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
-        btn_calendar = (Button) findViewById(R.id.qr_nue);
+        btn_calendar = (Button) findViewById(R.id.btcalendar);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
          param = getIntent().getStringExtra("param");
@@ -61,7 +71,7 @@ public class FormAlmacenar extends AppCompatActivity {
         datologin.setText("Bienvenido: " + param);
 
 
-        btn_calendar = (Button) findViewById(R.id.qr_nue);
+        btn_calendar = (Button) findViewById(R.id.btcalendar);
 
         btn_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +118,37 @@ public class FormAlmacenar extends AppCompatActivity {
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN);
             }
         });
+
+        mDisplayDate = (EditText)findViewById(R.id.txt_fechav);
+        btn_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal =Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        FormAlmacenar.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        day,month,year);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd/mm/aaaa: " + day + "/" + month + "/" + year);
+
+                String fecha = day + "/" + month + "/" + year;
+                edit_fechav.setText(fecha);
+            }
+        };
+
 
     }
 

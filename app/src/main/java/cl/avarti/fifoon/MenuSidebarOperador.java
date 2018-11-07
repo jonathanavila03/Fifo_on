@@ -17,6 +17,8 @@ public class MenuSidebarOperador extends AppCompatActivity {
 
         btnsidebar = (Button)findViewById(R.id.btnsidebarout);
 
+        Button btnexportarexcel = (Button)findViewById(R.id.btnexportarexcel);
+
         btnsidebar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,6 +26,14 @@ public class MenuSidebarOperador extends AppCompatActivity {
                 startActivity(abc);
             }
         });
+        btnexportarexcel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuSidebarOperador.this, exportarexcel.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
 }
