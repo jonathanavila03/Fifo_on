@@ -39,7 +39,7 @@ public class FormAlmacenar extends AppCompatActivity {
 
     private static final String ALMA_URL="http://fifo.esy.es/almacenar.php?";
     private static final int REQ_CODE_SPEECH_INPUT=100;
-    private static final int REQ_CODE_SPEECH_INPUT2=100;
+    private static final int REQ_CODE_SPEECH_INPUT2=102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
