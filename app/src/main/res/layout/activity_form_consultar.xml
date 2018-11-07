@@ -80,7 +80,7 @@
         app:srcCompat="@drawable/labelubicacion" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txt_ubicacion"
         android:layout_width="161dp"
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
@@ -99,11 +99,11 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/qr_ubi"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -118,7 +118,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/qr_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -141,7 +141,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion"
         tools:fontFamily="@font/ubunturegular"
         tools:textColor="@color/colorproyect" />
 

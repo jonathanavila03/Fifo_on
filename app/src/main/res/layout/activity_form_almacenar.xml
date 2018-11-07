@@ -192,7 +192,7 @@
         tools:text="Ingresa fecha" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/qr_ubi_nue"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -207,7 +207,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="312dp"
-        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintStart_toEndOf="@+id/qr_ubi_nue"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 

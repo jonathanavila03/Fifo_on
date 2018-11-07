@@ -80,7 +80,7 @@
         app:srcCompat="@drawable/labelubicacionactual" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txt_ubicacion"
         android:layout_width="161dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
@@ -94,7 +94,7 @@
         tools:text="Ingresa ubicación" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/qr_ubi"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
@@ -109,7 +109,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <ImageView
@@ -118,7 +118,7 @@
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/qr_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -133,7 +133,7 @@
         app:srcCompat="@drawable/incorrecto" />
 
     <RadioButton
-        android:id="@+id/radioButton"
+        android:id="@+id/radio_picking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <RadioButton
-        android:id="@+id/radioButton2"
+        android:id="@+id/radio_dañada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -155,7 +155,7 @@
         android:fontFamily="@font/ubuntubold"
         android:text="Mercadería dañada"
         android:textColor="@color/colorproyect"
-        app:layout_constraintStart_toEndOf="@+id/radioButton"
+        app:layout_constraintStart_toEndOf="@+id/radio_picking"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
@@ -168,10 +168,10 @@
         android:text="Selecciona el motivo de la salida"
         android:textColor="@color/colorproyect"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn_guardar"
         android:layout_width="279dp"
         android:layout_height="30dp"
         android:layout_marginTop="42dp"
@@ -181,7 +181,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton2"
+        app:layout_constraintTop_toBottomOf="@+id/radio_dañada"
         tools:fontFamily="@font/ubuntubold" />
 
 
