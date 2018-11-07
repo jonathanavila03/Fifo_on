@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".welco0activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +34,6 @@
         <activity android:name=".FormMover" />
         <activity android:name=".form_consultar" />
         <activity android:name=".form_Salida" />
-        <activity android:name=".welco0activity" />
         <activity android:name=".MenuSidebarOperador" />
         <activity android:name=".exportarexcel"></activity>
     </application>
