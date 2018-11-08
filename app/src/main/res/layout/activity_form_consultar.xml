@@ -50,7 +50,7 @@
         android:layout_width="56dp"
         android:layout_height="13dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/labelubicacion" />
@@ -83,7 +83,7 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/captureqr"
         app:layout_constraintStart_toEndOf="@+id/btn_mic_consultar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="220dp"
         app:layout_constraintStart_toEndOf="@+id/btn_qr_consultar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
@@ -103,7 +103,7 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="220dp"
         app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
