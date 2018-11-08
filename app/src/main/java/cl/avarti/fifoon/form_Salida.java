@@ -2,12 +2,10 @@ package cl.avarti.fifoon;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.view.menu.ActionMenuItemView;
 import android.widget.TextView;
 
 import android.view.View;
@@ -20,9 +18,6 @@ import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-import org.json.JSONArray;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -68,14 +63,14 @@ public class form_Salida extends AppCompatActivity {
                 salida();
             }
         });
-        mic_ubi_sal = (Button) findViewById(R.id.btn_mic_sal);
+        mic_ubi_sal = (Button) findViewById(R.id.btn_mic_salida);
         mic_ubi_sal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 obtenerVoz1();
             }
         });
-        qr_ubi_sal = (Button) findViewById(R.id.qr_ubi_salida);
+        qr_ubi_sal = (Button) findViewById(R.id.btn_qr_salida);
         qr_ubi_sal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

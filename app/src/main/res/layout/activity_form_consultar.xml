@@ -70,7 +70,7 @@
         tools:text="Ingresa ubicación" />
 
     <Button
-        android:id="@+id/btn_mic_sal"
+        android:id="@+id/btn_mic_consultar"
         android:layout_width="25dp"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
@@ -79,22 +79,22 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <Button
-        android:id="@+id/qr_ubi_salida"
+        android:id="@+id/btn_qr_consultar"
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="160dp"
         android:background="@drawable/captureqr"
-        app:layout_constraintStart_toEndOf="@+id/btn_mic_sal"
+        app:layout_constraintStart_toEndOf="@+id/btn_mic_consultar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/correcto_ubi"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/qr_ubi_salida"
+        app:layout_constraintStart_toEndOf="@+id/btn_qr_consultar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
@@ -104,7 +104,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
@@ -146,7 +146,7 @@
         tools:text="Código producto" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/correcto_prod"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
@@ -161,7 +161,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/correcto_prod"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/incorrecto" />
 

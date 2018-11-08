@@ -60,7 +60,7 @@ public class FormMover extends AppCompatActivity {
                 mover();
             }
         });
-        btn_qr_ant = (Button) findViewById(R.id.qr_ubi_salida);
+        btn_qr_ant = (Button) findViewById(R.id.btn_qr_ant);
         btn_qr_ant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class FormMover extends AppCompatActivity {
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN2);
             }
         });
-        btn_mic_ant = (Button) findViewById(R.id.btn_mic_sal);
+        btn_mic_ant = (Button) findViewById(R.id.btn_mic_ant);
         btn_mic_ant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

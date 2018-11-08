@@ -72,7 +72,7 @@
         tools:text="Código producto" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/correcto_prod"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
@@ -82,12 +82,12 @@
         app:srcCompat="@drawable/correcto" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/malo_prod"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="173dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/correcto_prod"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/correcto_ubi"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
@@ -141,7 +141,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="232dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
@@ -178,26 +178,6 @@
         android:background="@drawable/selecfecha"
         app:layout_constraintStart_toEndOf="@+id/txt_fechav"
         app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
-
-    <ImageView
-        android:id="@+id/imageViewcorrecto"
-        android:layout_width="19dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="312dp"
-        app:layout_constraintStart_toEndOf="@+id/btcalendar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/correcto" />
-
-    <ImageView
-        android:id="@+id/imageViewincorrecto"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="312dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewcorrecto"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/incorrecto" />
 
     <Button
         android:id="@+id/btn_gua_alma"
