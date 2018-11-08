@@ -108,84 +108,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="- Ó -"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_org"
-        tools:fontFamily="@font/ubunturegular"
-        tools:textColor="@color/colorproyect" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="53dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/labelproducto" />
-
-    <EditText
-        android:id="@+id/txt_producto"
-        android:layout_width="161dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/ubuntulight"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        tools:background="@drawable/edittext"
-        tools:text="Código producto" />
-
-    <ImageView
-        android:id="@+id/correcto_prod"
-        android:layout_width="19dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/btn_micproducto"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/correcto" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/correcto_prod"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/incorrecto" />
-
-    <Button
-        android:id="@+id/btn_micproducto"
-        android:layout_width="26dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/voz"
-        app:layout_constraintStart_toEndOf="@+id/txt_producto"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
-
     <Button
         android:id="@+id/btn_consu"
         android:layout_width="279dp"
         android:layout_height="30dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="82dp"
         android:background="@drawable/btnconsultarform"
         android:text="Consultar"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_producto"
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubi_org"
         tools:fontFamily="@font/ubuntubold" />
 
     <TextView
