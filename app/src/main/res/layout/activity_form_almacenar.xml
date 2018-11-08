@@ -52,7 +52,7 @@
         android:layout_width="53dp"
         android:layout_height="13dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/labelproducto" />
@@ -120,7 +120,7 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="29dp"
         android:background="@drawable/captureqr"
         app:layout_constraintStart_toEndOf="@+id/btn_micubicacion"
         app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
@@ -130,7 +130,7 @@
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="242dp"
         app:layout_constraintStart_toEndOf="@+id/qr"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
@@ -140,7 +140,7 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="242dp"
         app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
@@ -174,7 +174,7 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="29dp"
         android:background="@drawable/selecfecha"
         app:layout_constraintStart_toEndOf="@+id/txt_fechav"
         app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
@@ -183,7 +183,7 @@
         android:id="@+id/btn_gua_alma"
         android:layout_width="279.94dp"
         android:layout_height="30dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btguardaralmacenarnueva"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -194,7 +194,7 @@
         android:id="@+id/btn_gua"
         android:layout_width="279.94dp"
         android:layout_height="30dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btnguardarregresarmenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -205,6 +205,7 @@
         android:id="@+id/btn_micubicacion"
         android:layout_width="26dp"
         android:layout_height="29dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/voz"
         app:layout_constraintStart_toEndOf="@+id/txt_ubicacion"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -213,6 +214,7 @@
         android:id="@+id/btn_micproducto"
         android:layout_width="26dp"
         android:layout_height="29dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/voz"
         app:layout_constraintStart_toEndOf="@+id/txt_producto"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
