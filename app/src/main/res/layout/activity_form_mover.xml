@@ -80,22 +80,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/correcto_ubi"
+        android:id="@+id/correcto_ubi_mover"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="188dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/btn_qr_ant"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/incorrecto_ubi_mover"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="188dp"
-        app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/correcto_ubi_mover"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
@@ -134,22 +136,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/correcto_ubi_moverdos"
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="305dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/qr_nue"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/incorrecto_ubi_moverdos"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="305dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/correcto_ubi_mover"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />
 
