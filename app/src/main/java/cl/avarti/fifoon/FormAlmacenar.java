@@ -149,7 +149,6 @@ public class FormAlmacenar extends AppCompatActivity {
             }
         };
 
-
     }
 
    private void almacenar(){
@@ -160,7 +159,6 @@ public class FormAlmacenar extends AppCompatActivity {
             String produ = edit_producto.getText().toString();
             String ubi = edit_ubicacion.getText().toString();
             String fechav = edit_fechav.getText().toString();
-
 
             String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav+"&usuario="+param;
             cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
