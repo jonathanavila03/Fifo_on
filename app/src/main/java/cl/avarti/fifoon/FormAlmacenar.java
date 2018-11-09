@@ -14,12 +14,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.loopj.android.http.*;
 
 
 import com.blikoon.qrcodescanner.QrCodeActivity;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,6 +37,7 @@ public class FormAlmacenar extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private AsyncHttpClient cliente;
+    private AsyncHttpClient cliente2;
     EditText edit_producto;
     EditText edit_ubicacion;
     EditText edit_fechav;
@@ -44,6 +48,9 @@ public class FormAlmacenar extends AppCompatActivity {
     Button grabar_ubi;
     Button btn_calendar;
     String param;
+    String validar_ubi;
+    ImageView correcto_ubi;
+    ImageView incorrecto_ubi;
     private TextView datologin;
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
@@ -58,12 +65,13 @@ public class FormAlmacenar extends AppCompatActivity {
         setContentView(R.layout.activity_form_almacenar);
 
         datologin = (TextView)findViewById(R.id.parametrologinalma);
-
+        correcto_ubi = (ImageView) findViewById(R.id.correcto_ubi);
         edit_producto = (EditText) findViewById(R.id.txt_producto);
         edit_ubicacion= (EditText) findViewById(R.id.txt_ubicacion);
         edit_fechav = (EditText) findViewById(R.id.txt_fechav);
         btn_calendar = (Button) findViewById(R.id.btcalendar);
-
+        incorrecto_ubi = (ImageView) findViewById(R.id.incorrecto_ubi);
+        validar_ubi = new String();
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
          param = getIntent().getStringExtra("param");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
@@ -93,11 +101,12 @@ public class FormAlmacenar extends AppCompatActivity {
             }
         });
         cliente = new AsyncHttpClient();
+        cliente2 = new AsyncHttpClient();
         btn_gua_alma = (Button) findViewById(R.id.btn_gua_alma);
         btn_gua_alma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                almacenar();
+                obtenerConsulta();
             }
         });
         btn_gua=(Button)findViewById(R.id.btn_gua);
@@ -153,29 +162,42 @@ public class FormAlmacenar extends AppCompatActivity {
 
    private void almacenar(){
 
+
+
         if (edit_producto.getText().toString().isEmpty() || edit_ubicacion.getText().toString().isEmpty() || edit_fechav.getText().toString().isEmpty()){
             Toast.makeText(FormAlmacenar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
         }else {
-            String produ = edit_producto.getText().toString();
-            String ubi = edit_ubicacion.getText().toString();
-            String fechav = edit_fechav.getText().toString();
 
-            String parametros =  "producto="+produ+"&ubicacion="+ubi+"&fechav="+fechav+"&usuario="+param;
-            cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                    if (statusCode == 200){
-                        Toast.makeText(FormAlmacenar.this, "Registro Agregado Correctamente", Toast.LENGTH_SHORT).show();
-                        edit_fechav.setText("");
-                        edit_producto.setText("");
-                        edit_ubicacion.setText("");
+            if ( validar_ubi.isEmpty()) {
+                correcto_ubi.setVisibility(View.VISIBLE);
+                incorrecto_ubi.setVisibility(View.INVISIBLE);
+                String produ = edit_producto.getText().toString();
+                String ubi = edit_ubicacion.getText().toString();
+                String fechav = edit_fechav.getText().toString();
+
+                String parametros = "producto=" + produ + "&ubicacion=" + ubi + "&fechav=" + fechav + "&usuario=" + param;
+                cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        if (statusCode == 200) {
+                            Toast.makeText(FormAlmacenar.this, "Registro Agregado Correctamente", Toast.LENGTH_SHORT).show();
+                            edit_fechav.setText("");
+                            edit_producto.setText("");
+                            edit_ubicacion.setText("");
+                        }
                     }
-                }
-                @Override
-                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
-                }
-            });
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                    }
+                });
+            } else
+            {
+                incorrecto_ubi.setVisibility(View.VISIBLE);
+                correcto_ubi.setVisibility(View.INVISIBLE);
+                Toast.makeText(this, "Ubicación Ocupada.", Toast.LENGTH_SHORT).show();
+            }
         }
 }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -234,6 +256,38 @@ public class FormAlmacenar extends AppCompatActivity {
 
         }
     }
+
+    private void obtenerConsulta()
+    {
+        String ubicar = edit_ubicacion.getText().toString();
+        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
+        String parametros ="ubicacion="+ubicar+"&usuario="+ param;
+        cliente2.get(url+parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200)
+                {
+                    obtenerUbicacion(new String (responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
+    private void obtenerUbicacion(String respuesta){
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i <jsonArreglo.length(); i++){
+                validar_ubi = jsonArreglo.getJSONObject(i).getString("Ubicacion");
+            }
+            almacenar();
+        }catch (Exception e1)
+        {e1.printStackTrace();}
+    }
+
 
 
 
