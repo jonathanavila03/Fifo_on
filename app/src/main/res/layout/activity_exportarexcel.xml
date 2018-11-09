@@ -35,42 +35,27 @@
         android:id="@+id/btn_export_excel"
         android:layout_width="279dp"
         android:layout_height="30dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btnconsultarform"
-        android:text="Exportar"
+        android:text="descargar"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_export_excel"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:fontFamily="@font/ubuntubold" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="25dp"
+        android:layout_width="103dp"
+        android:layout_height="20dp"
         android:layout_marginTop="82dp"
         android:fontFamily="@font/ubuntulight"
-        android:text="Ingresa email para exportar"
+        android:text="Descargar FIFO"
         android:textColor="@color/colorproyect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/txt_export_excel"
-        android:layout_width="313dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/ubuntulight"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:background="@drawable/edittext"
-        tools:text="Email destino" />
 
 </android.support.constraint.ConstraintLayout>
