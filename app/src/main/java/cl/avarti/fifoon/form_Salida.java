@@ -6,6 +6,7 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.view.View;
@@ -18,6 +19,8 @@ import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -26,6 +29,8 @@ import cz.msebera.android.httpclient.Header;
 
 
 public class form_Salida extends AppCompatActivity {
+
+    private AsyncHttpClient cliente2;
     EditText ubicacion;
     String param;
     RadioButton picking;
@@ -33,6 +38,9 @@ public class form_Salida extends AppCompatActivity {
     Button guardar;
     Button mic_ubi_sal;
     Button qr_ubi_sal;
+    String validar_ubi;
+    ImageView correcto_ubi;
+    ImageView incorrecto_ubi;
     private static final String ALMA_URL="http://fifo.esy.es/salida.php?";
     private AsyncHttpClient cliente;
     private static final int REQ_CODE_SPEECH_INPUT=100;
@@ -47,6 +55,11 @@ public class form_Salida extends AppCompatActivity {
 
 
         datologin = (TextView)findViewById(R.id.parametrologinsalida);
+
+        correcto_ubi =(ImageView)findViewById(R.id.correcto_ubi_salida);
+        incorrecto_ubi = (ImageView)findViewById(R.id.incorrecto_ubi_salida);
+
+        validar_ubi = new String();
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
          param = getIntent().getStringExtra("param");
@@ -92,23 +105,31 @@ public class form_Salida extends AppCompatActivity {
                 comentario = "Mercaderia dañada";
             }
 
+            if (validar_ubi.isEmpty()) {
+                Toast.makeText(this, "No hay mercadería en ubicación", Toast.LENGTH_SHORT).show();
+            }else{
+                correcto_ubi.setVisibility(View.VISIBLE);
+                incorrecto_ubi.setVisibility(View.INVISIBLE);
 
-            String parametros =  "ubicacion="+ubi+"&comentario="+comentario+"&usuario="+param;
-            cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                    if (statusCode == 200){
-                        Toast.makeText(form_Salida.this, "Salida Registrada Correctamente", Toast.LENGTH_SHORT).show();
-                        ubicacion.setText("");
+                String parametros = "ubicacion=" + ubi + "&comentario=" + comentario + "&usuario=" + param;
+                cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        if (statusCode == 200) {
+                            Toast.makeText(form_Salida.this, "Salida Registrada Correctamente", Toast.LENGTH_SHORT).show();
+                            ubicacion.setText("");
 
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
                     }
-                }
-                @Override
-                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                });
 
-                }
-            });
+            }
         }
     }
     private void obtenerVoz1(){
@@ -144,6 +165,37 @@ public class form_Salida extends AppCompatActivity {
             String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
             return;
         }
+    }
+
+    private void obtenerConsulta()
+    {
+        String ubicar = ubicacion.getText().toString();
+        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
+        String parametros ="ubicacion="+ubicar+"&usuario="+ param;
+        cliente2.get(url+parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200)
+                {
+                    obtenerUbicacion(new String (responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
+    private void obtenerUbicacion(String respuesta){
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i <jsonArreglo.length(); i++){
+                validar_ubi = jsonArreglo.getJSONObject(i).getString("Ubicacion");
+            }
+            salida();
+        }catch (Exception e1)
+        {e1.printStackTrace();}
     }
 
 }
