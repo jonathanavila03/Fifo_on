@@ -49,7 +49,7 @@
         android:id="@+id/imageView8"
         android:layout_width="56dp"
         android:layout_height="13dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +59,7 @@
         android:id="@+id/txt_ubi_org"
         android:layout_width="161dp"
         android:layout_height="35dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/ubuntulight"
         android:textColor="@android:color/darker_gray"
@@ -67,13 +67,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         tools:background="@drawable/edittext"
-        tools:text="Ingresa ubicación" />
+        tools:text="  Ingresa ubicación" />
 
     <Button
         android:id="@+id/btn_mic_consultar"
         android:layout_width="25dp"
         android:layout_height="28dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/voz"
         app:layout_constraintStart_toEndOf="@+id/txt_ubi_org"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -83,7 +83,7 @@
         android:layout_width="53dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="210dp"
         android:background="@drawable/captureqr"
         app:layout_constraintStart_toEndOf="@+id/btn_mic_consultar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
         android:layout_width="19dp"
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="230dp"
         app:layout_constraintStart_toEndOf="@+id/btn_qr_consultar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/correcto" />
@@ -103,7 +103,7 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="230dp"
         app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/incorrecto" />

@@ -31,20 +31,20 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         datologin = (TextView)findViewById(R.id.parametrologin);
         btnsidebar = (Button)findViewById(R.id.btnsidebarin);
 
-
-        btnsidebar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent abc = new Intent(Menuoperador.this, MenuSidebarOperador.class);
-                startActivity(abc);
-            }
-        });
-
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String dato = getIntent().getStringExtra("dato");
         String parametroActivity = getIntent().getStringExtra("parametro");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + dato);
+
+        btnsidebar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent abc = new Intent(Menuoperador.this, MenuSidebarOperador.class);
+                abc.putExtra("param",getIntent().getStringExtra("dato"));
+                startActivity(abc);
+            }
+        });
 
     }
     public void onClick(View v)
