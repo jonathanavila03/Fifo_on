@@ -66,6 +66,7 @@ public class form_Salida extends AppCompatActivity {
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + param);
         cliente = new AsyncHttpClient();
+        cliente2 = new AsyncHttpClient();
         ubicacion = (EditText) findViewById(R.id.txt_ubi_org);
         picking = (RadioButton) findViewById(R.id.radio_picking);
         dañado = (RadioButton) findViewById(R.id.radio_dañada);
@@ -73,7 +74,7 @@ public class form_Salida extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salida();
+                obtenerConsulta();
             }
         });
         mic_ubi_sal = (Button) findViewById(R.id.btn_mic_salida);
