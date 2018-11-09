@@ -108,6 +108,8 @@ public class form_Salida extends AppCompatActivity {
 
             if (validar_ubi.isEmpty()) {
                 Toast.makeText(this, "No hay mercadería en ubicación", Toast.LENGTH_SHORT).show();
+                incorrecto_ubi.setVisibility(View.VISIBLE);
+                correcto_ubi.setVisibility(View.INVISIBLE);
             }else{
                 correcto_ubi.setVisibility(View.VISIBLE);
                 incorrecto_ubi.setVisibility(View.INVISIBLE);

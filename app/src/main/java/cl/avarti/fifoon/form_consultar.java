@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import android.widget.Button;
@@ -38,6 +39,10 @@ public class form_consultar extends AppCompatActivity {
     EditText ubicacion;
     EditText producto;
     Button consultar;
+    String param;
+    String validar_ubi;
+    ImageView correcto_ubi;
+    ImageView incorrecto_ubi;
     private TextView datologin;
     AlertDialog.Builder builder;
     private static final int REQUEST_CODE_QR_SCAN = 100;
@@ -49,21 +54,25 @@ public class form_consultar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_consultar);
-       builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);
+        validar_ubi = new String();
 
         datologin = (TextView)findViewById(R.id.parametrologinconsul);
+
+        correcto_ubi =(ImageView)findViewById(R.id.correcto_ubi_consulta);
+        incorrecto_ubi = (ImageView)findViewById(R.id.incorrecto_ubi_consulta);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String param = getIntent().getStringExtra("param");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + param);
-        ubicacion = (EditText) findViewById(R.id.txt_ubi_org);
+        ubicacion = (EditText) findViewById(R.id.txt_ubi_consul);
         cliente = new AsyncHttpClient();
         consultar = (Button) findViewById(R.id.btn_consu);
         consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerConsulta();
+                obtConsulta();
 
             }
         });
@@ -87,22 +96,39 @@ public class form_consultar extends AppCompatActivity {
 
     private void obtenerConsulta()
     {
-        String url = "http://fifo.esy.es/obtenerDatos.php?";
-        String parametros ="ubicacion="+ubicacion.getText().toString();
-        cliente.get(url+parametros, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200)
-                {
-                    obtenerProducto(new String (responseBody));
-                }
-            }
+        if (ubicacion.getText().toString().isEmpty()){
+            Toast.makeText(form_consultar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
+            incorrecto_ubi.setVisibility(View.VISIBLE);
+            correcto_ubi.setVisibility(View.INVISIBLE);
+        }else{
+            if (validar_ubi.isEmpty()) {
+                Toast.makeText(this, "No hay mercadería en ubicación", Toast.LENGTH_SHORT).show();
+                incorrecto_ubi.setVisibility(View.VISIBLE);
+                correcto_ubi.setVisibility(View.INVISIBLE);
+            }else{
+                String url = "http://fifo.esy.es/obtenerDatos.php?";
+                String parametros ="ubicacion="+ubicacion.getText().toString();
+                correcto_ubi.setVisibility(View.VISIBLE);
+                incorrecto_ubi.setVisibility(View.INVISIBLE);
+                cliente.get(url+parametros, new AsyncHttpResponseHandler() {
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        if (statusCode == 200)
+                        {
+                            obtenerProducto(new String (responseBody));
+                        }
+                    }
 
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                    }
+                });
             }
-        });
+        }
+
+
     }
     private void obtenerProducto(String respuesta){
         try{
@@ -153,4 +179,36 @@ public class form_consultar extends AppCompatActivity {
 
         }
     }
+
+    private void obtConsulta()
+    {
+        String ubicar = ubicacion.getText().toString();
+        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
+        String parametros ="ubicacion="+ubicar+"&usuario="+ param;
+        cliente.get(url+parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200)
+                {
+                    obtUbicacion(new String (responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
+    private void obtUbicacion(String respuesta){
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i <jsonArreglo.length(); i++){
+                validar_ubi = jsonArreglo.getJSONObject(i).getString("Ubicacion");
+            }
+            obtenerConsulta();
+        }catch (Exception e1)
+        {e1.printStackTrace();}
+    }
+
 }
