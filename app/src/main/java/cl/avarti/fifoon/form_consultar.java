@@ -101,31 +101,23 @@ public class form_consultar extends AppCompatActivity {
             incorrecto_ubi.setVisibility(View.VISIBLE);
             correcto_ubi.setVisibility(View.INVISIBLE);
         }else{
-            if (validar_ubi.isEmpty()) {
-                Toast.makeText(this, "No hay mercadería en ubicación", Toast.LENGTH_SHORT).show();
-                incorrecto_ubi.setVisibility(View.VISIBLE);
-                correcto_ubi.setVisibility(View.INVISIBLE);
-            }else{
-                String url = "http://fifo.esy.es/obtenerDatos.php?";
-                String parametros ="ubicacion="+ubicacion.getText().toString();
-                correcto_ubi.setVisibility(View.VISIBLE);
-                incorrecto_ubi.setVisibility(View.INVISIBLE);
-                cliente.get(url+parametros, new AsyncHttpResponseHandler() {
+            String url = "http://fifo.esy.es/obtenerDatos.php?";
+            String parametros ="ubicacion="+ubicacion.getText().toString();
+            cliente.get(url+parametros, new AsyncHttpResponseHandler() {
 
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        if (statusCode == 200)
-                        {
-                            obtenerProducto(new String (responseBody));
-                        }
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    if (statusCode == 200)
+                    {
+                        obtenerProducto(new String (responseBody));
                     }
+                }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
-                    }
-                });
-            }
+                }
+            });
         }
 
 

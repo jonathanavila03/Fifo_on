@@ -32,6 +32,7 @@ public class MenuSidebarOperador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent abc = new Intent(MenuSidebarOperador.this, Menuoperador.class);
+                abc.putExtra("param",getIntent().getStringExtra("dato"));
                 startActivity(abc);
             }
         });
