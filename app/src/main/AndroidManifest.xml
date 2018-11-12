@@ -16,26 +16,59 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
 
-        </activity>
-        <activity android:name=".welco0activity">
+        <activity android:name=".welco0activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".welco1activity" />
-        <activity android:name=".welco2activity" />
-        <activity android:name=".welco3activity" />
-        <activity android:name=".Menuoperador" />
-        <activity android:name=".FormAlmacenar" />
-        <activity android:name=".FormMover" />
-        <activity android:name=".form_consultar" />
-        <activity android:name=".form_Salida" />
-        <activity android:name=".MenuSidebarOperador" />
-        <activity android:name=".exportarexcel"></activity>
+
+        <activity android:name=".welco1activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".welco2activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".welco3activity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Menuoperador"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".FormAlmacenar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".FormMover"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".form_consultar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".form_Salida"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".MenuSidebarOperador"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".exportarexcel"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
