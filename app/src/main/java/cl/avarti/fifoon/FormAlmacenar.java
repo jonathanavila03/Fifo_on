@@ -137,7 +137,7 @@ public class FormAlmacenar extends AppCompatActivity {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         FormAlmacenar.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        android.R.style.Theme_DeviceDefault_Dialog_NoActionBar,
                         mDateSetListener,
                         day,month,year);
 
