@@ -137,12 +137,11 @@ public class FormAlmacenar extends AppCompatActivity {
 
                 DatePickerDialog dialog = new DatePickerDialog(
                         FormAlmacenar.this,
-                        android.R.style.Theme_DeviceDefault_Dialog_NoActionBar,
                         mDateSetListener,
                         day,month,year);
 
                 dialog.updateDate(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
                 dialog.show();
             }
         });

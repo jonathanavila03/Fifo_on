@@ -7,16 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorHint">#ffffff</item>
         <item name="android:dayOfWeekBackground">#fff</item>
-
     </style>
 
     <style name="FlatButton" parent="Theme.AppCompat.Light">
         <item name="android:textColor">#140a5a</item>
         <item name="colorControlHighlight">#ffffff</item>
-    </style>
-
-    <style name="DatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:dayOfWeekBackground">#fff</item>
     </style>
 
 </resources>

@@ -83,7 +83,6 @@ public class form_consultar extends AppCompatActivity {
                 obtenerVoz1();
             }
         });
-        qr_consul = (Button) findViewById(R.id.btn_qr_consultar);
         qr_consul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
