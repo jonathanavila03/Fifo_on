@@ -6,62 +6,42 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
-import com.blikoon.qrcodescanner.QrCodeActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
 import org.json.JSONArray;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Locale;
-
 import cz.msebera.android.httpclient.Header;
-
-
-
 
 
 public class form_consultar extends AppCompatActivity {
     private AsyncHttpClient cliente;
     private String valor_prod;
-    private Array Ubicacion;
     EditText ubicacion;
     EditText producto;
     Button consultar;
     String param;
     String validar_ubi;
-    ImageView correcto_ubi;
-    ImageView incorrecto_ubi;
     private TextView datologin;
-    AlertDialog.Builder builder;
-    private static final int REQUEST_CODE_QR_SCAN = 100;
     private static final int REQ_CODE_SPEECH_INPUT = 101;
     Button mic_consu;
-    Button qr_consul;
+    ListView lvDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_consultar);
-        builder = new AlertDialog.Builder(this);
         validar_ubi = new String();
-
+        lvDatos = (ListView) findViewById(R.id.lvDatos);
         datologin = (TextView)findViewById(R.id.parametrologinconsul);
-
-        correcto_ubi =(ImageView)findViewById(R.id.correcto_ubi_consulta);
-        incorrecto_ubi = (ImageView)findViewById(R.id.incorrecto_ubi_consulta);
-
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String param = getIntent().getStringExtra("param");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
@@ -72,7 +52,7 @@ public class form_consultar extends AppCompatActivity {
         consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtConsulta();
+                obtenerConsulta();
 
             }
         });
@@ -83,25 +63,15 @@ public class form_consultar extends AppCompatActivity {
                 obtenerVoz1();
             }
         });
-        qr_consul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(form_consultar.this, QrCodeActivity.class);
-                startActivityForResult(i, REQUEST_CODE_QR_SCAN);
-            }
-        });
-
     }
 
     private void obtenerConsulta()
     {
         if (ubicacion.getText().toString().isEmpty()){
             Toast.makeText(form_consultar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
-            incorrecto_ubi.setVisibility(View.VISIBLE);
-            correcto_ubi.setVisibility(View.INVISIBLE);
         }else{
             String url = "http://fifo.esy.es/obtenerDatos.php?";
-            String parametros ="ubicacion="+ubicacion.getText().toString();
+            String parametros ="producto="+ubicacion.getText().toString();
             cliente.get(url+parametros, new AsyncHttpResponseHandler() {
 
                 @Override
@@ -122,34 +92,23 @@ public class form_consultar extends AppCompatActivity {
 
     }
     private void obtenerProducto(String respuesta){
+        ArrayList<String> lista = new ArrayList<String>();
         try{
             JSONArray jsonArreglo = new JSONArray(respuesta);
             for (int i = 0; i <jsonArreglo.length(); i++){
-                valor_prod = jsonArreglo.getJSONObject(i).getString("DescripcionProducto");
+                valor_prod = jsonArreglo.getJSONObject(i).getString("Ubicacion");
+                lista.add(valor_prod);
+
             }
-            builder.setTitle("Producto");
-            builder.setMessage(valor_prod);
-            builder.setPositiveButton("OK", null);
-            builder.create();
-            builder.show();
+            ArrayAdapter<String> a = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
+            lvDatos.setAdapter(a);
+
         }catch (Exception e1)
         {e1.printStackTrace();}
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == REQUEST_CODE_QR_SCAN) {
-            if (data != null) {
-                String lectura = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
-                Toast.makeText(getApplicationContext(), "Leído: " + lectura, Toast.LENGTH_SHORT).show();
-                ubicacion.setText(lectura);
-
-            }
-        } else if (requestCode == REQUEST_CODE_QR_SCAN && data == null) {
-            Toast.makeText(getApplicationContext(), "No se pudo obtener una respuesta, intente nuevamente.", Toast.LENGTH_SHORT).show();
-            String resultado = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
-            return;
-        }
         if (requestCode == REQ_CODE_SPEECH_INPUT){
             if (resultCode == RESULT_OK && null != data)
             {
@@ -171,35 +130,5 @@ public class form_consultar extends AppCompatActivity {
         }
     }
 
-    private void obtConsulta()
-    {
-        String ubicar = ubicacion.getText().toString();
-        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
-        String parametros ="ubicacion="+ubicar+"&usuario="+ param;
-        cliente.get(url+parametros, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200)
-                {
-                    obtUbicacion(new String (responseBody));
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-        });
-    }
-    private void obtUbicacion(String respuesta){
-        try{
-            JSONArray jsonArreglo = new JSONArray(respuesta);
-            for (int i = 0; i <jsonArreglo.length(); i++){
-                validar_ubi = jsonArreglo.getJSONObject(i).getString("Ubicacion");
-            }
-            obtenerConsulta();
-        }catch (Exception e1)
-        {e1.printStackTrace();}
-    }
 
 }
