@@ -41,7 +41,7 @@ public class form_Salida extends AppCompatActivity {
     String validar_ubi;
     ImageView correcto_ubi;
     ImageView incorrecto_ubi;
-    private static final String ALMA_URL="http://fifo.esy.es/salida.php?";
+    private static final String ALMA_URL="http://35.226.157.199/JSON/salida.php?";
     private AsyncHttpClient cliente;
     private static final int REQ_CODE_SPEECH_INPUT=100;
     private static final int REQUEST_CODE_QR_SCAN = 101;
@@ -173,7 +173,7 @@ public class form_Salida extends AppCompatActivity {
     private void obtenerConsulta()
     {
         String ubicar = ubicacion.getText().toString();
-        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
+        String url = "http://35.226.157.199/JSON/obtenerUbicacion.php?";
         String parametros ="ubicacion="+ubicar+"&usuario="+ param;
         cliente2.get(url+parametros, new AsyncHttpResponseHandler() {
             @Override

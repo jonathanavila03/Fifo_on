@@ -70,7 +70,7 @@ public class form_consultar extends AppCompatActivity {
         if (ubicacion.getText().toString().isEmpty()){
             Toast.makeText(form_consultar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
         }else{
-            String url = "http://fifo.esy.es/obtenerDatos.php?";
+            String url = "http://35.226.157.199/JSON/obtenerDatos.php?";
             String parametros ="producto="+ubicacion.getText().toString();
             cliente.get(url+parametros, new AsyncHttpResponseHandler() {
 

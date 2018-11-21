@@ -28,7 +28,7 @@ public class FormMover extends AppCompatActivity {
     Button btn_mic_nue;
     Button btn_mic_ant;
     String param;
-    private static final String URL="http://fifo.esy.es/mover.php?";
+    private static final String URL="http://35.226.157.199/JSON/mover.php?";
     private AsyncHttpClient moverget;
     private static final int REQ_CODE_SPEECH_INPUT=100;
     private static final int REQ_CODE_SPEECH_INPUT2=102;

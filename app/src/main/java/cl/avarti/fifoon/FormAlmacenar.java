@@ -54,7 +54,7 @@ public class FormAlmacenar extends AppCompatActivity {
     private TextView datologin;
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
-    private static final String ALMA_URL="http://fifo.esy.es/almacenar.php?";
+    private static final String ALMA_URL="http://35.226.157.199/JSON/almacenar.php?";
     private static final int REQ_CODE_SPEECH_INPUT=100;
     private static final int REQ_CODE_SPEECH_INPUT2=102;
 
