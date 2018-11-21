@@ -26,7 +26,7 @@ public class exportarexcel extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("http://fifo.esy.es/Excel.php"));
+                intent.setData(Uri.parse("http://35.226.157.199/JSON/Excel.php"));
                 startActivity(intent);
             }
         });
