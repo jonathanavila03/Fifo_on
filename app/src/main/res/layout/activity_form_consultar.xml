@@ -45,62 +45,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="105dp"
-        android:layout_height="20dp"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="53dp"
+        android:layout_height="13dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="88dp"
-        android:fontFamily="@font/ubunturegular"
-        android:text="Producto"
-        android:textColor="@color/colorproyect"
+        android:layout_marginTop="140dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/labelproducto" />
 
     <EditText
         android:id="@+id/txt_ubi_consul"
         android:layout_width="161dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:fontFamily="@font/ubuntulight"
         android:textColor="@android:color/darker_gray"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:background="@drawable/edittext"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         tools:text="  Ingresa producto" />
 
     <Button
         android:id="@+id/btn_mic_consultar"
         android:layout_width="25dp"
         android:layout_height="28dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/voz"
         app:layout_constraintStart_toEndOf="@+id/txt_ubi_consul"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <ImageView
-        android:id="@+id/correcto_ubi_consulta"
-        android:layout_width="19dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/btn_mic_consultar"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/correcto" />
-
-    <ImageView
-        android:id="@+id/incorrecto_ubi_consulta"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/correcto_ubi_consulta"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/incorrecto" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
         android:id="@+id/btn_consu"
@@ -131,13 +104,17 @@
 
     <ListView
         android:id="@+id/lvDatos"
-        android:layout_width="368dp"
-        android:layout_height="283dp"
+        android:layout_width="359dp"
+        android:layout_height="118dp"
         android:layout_marginTop="20dp"
         android:cacheColorHint="@color/colorproyect"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_consu" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_consu"
+        tools:verticalScrollbarPosition="defaultPosition" />
 
 
 </android.support.constraint.ConstraintLayout>

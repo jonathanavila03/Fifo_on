@@ -68,7 +68,6 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        tools:background="@drawable/edittext"
         tools:text="Código producto" />
 
     <ImageView
@@ -100,7 +99,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_producto"
+        app:layout_constraintTop_toBottomOf="@+id/txt_fechav"
         app:srcCompat="@drawable/labelubicacion" />
 
     <EditText
@@ -114,7 +113,6 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        tools:background="@drawable/edittext"
         tools:text="Ingresa ubicación" />
 
     <Button
@@ -125,14 +123,14 @@
         android:layout_marginTop="29dp"
         android:background="@drawable/captureqr"
         app:layout_constraintStart_toEndOf="@+id/btn_micubicacion"
-        app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fechav" />
 
     <ImageView
         android:id="@+id/correcto_ubi"
         android:layout_width="19dp"
         android:layout_height="21dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="242dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="312dp"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/qr"
         app:layout_constraintTop_toTopOf="parent"
@@ -142,8 +140,8 @@
         android:id="@+id/incorrecto_ubi"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="242dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="312dp"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/correcto_ubi"
         app:layout_constraintTop_toTopOf="parent"
@@ -156,7 +154,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion"
+        app:layout_constraintTop_toBottomOf="@+id/txt_producto"
         app:srcCompat="@drawable/labelfechavenci" />
 
     <EditText
@@ -170,7 +168,6 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        tools:background="@drawable/edittext"
         tools:text="Ingresa fecha" />
 
     <Button
@@ -181,29 +178,18 @@
         android:layout_marginTop="29dp"
         android:background="@drawable/selecfecha"
         app:layout_constraintStart_toEndOf="@+id/txt_fechav"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_producto" />
 
     <Button
         android:id="@+id/btn_gua_alma"
         android:layout_width="279.94dp"
         android:layout_height="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="42dp"
         android:background="@drawable/btguardaralmacenarnueva"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_fechav" />
-
-    <Button
-        android:id="@+id/btn_gua"
-        android:layout_width="279.94dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/btnguardarregresarmenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_gua_alma" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_ubicacion" />
 
     <Button
         android:id="@+id/btn_micubicacion"

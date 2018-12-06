@@ -42,7 +42,6 @@ public class FormAlmacenar extends AppCompatActivity {
     EditText edit_ubicacion;
     EditText edit_fechav;
     Button btn_gua_alma;
-    Button btn_gua;
     Button btn_qr;
     Button grabar_prod;
     Button grabar_ubi;
@@ -107,15 +106,6 @@ public class FormAlmacenar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 obtenerConsulta();
-            }
-        });
-        btn_gua=(Button)findViewById(R.id.btn_gua);
-        btn_gua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                almacenar();
-                Intent intent = new Intent(FormAlmacenar.this, Menuoperador.class);
-                startActivity(intent);
             }
         });
         btn_qr = (Button) findViewById(R.id.qr);
@@ -259,7 +249,7 @@ public class FormAlmacenar extends AppCompatActivity {
     private void obtenerConsulta()
     {
         String ubicar = edit_ubicacion.getText().toString();
-        String url = "http://fifo.esy.es/obtenerUbicacion.php?";
+        String url = "http://35.226.157.199/JSON/obtenerUbicacion.php?";
         String parametros ="ubicacion="+ubicar+"&usuario="+ param;
         cliente2.get(url+parametros, new AsyncHttpResponseHandler() {
             @Override
