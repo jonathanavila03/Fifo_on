@@ -1,11 +1,10 @@
 package cl.avarti.fifoon;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
@@ -48,8 +47,11 @@ public class FormAlmacenar extends AppCompatActivity {
     Button btn_calendar;
     String param;
     String validar_ubi;
+    String existe_ubicacion;
+    String existe_producto;
     ImageView correcto_ubi;
     ImageView incorrecto_ubi;
+    AlertDialog.Builder dialogo1;
     private TextView datologin;
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
@@ -101,11 +103,12 @@ public class FormAlmacenar extends AppCompatActivity {
         });
         cliente = new AsyncHttpClient();
         cliente2 = new AsyncHttpClient();
+        dialogo1 = new AlertDialog.Builder(this);
         btn_gua_alma = (Button) findViewById(R.id.btn_gua_alma);
         btn_gua_alma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerConsulta();
+                Validacion();
             }
         });
         btn_qr = (Button) findViewById(R.id.qr);
@@ -154,39 +157,50 @@ public class FormAlmacenar extends AppCompatActivity {
 
 
         if (edit_producto.getText().toString().isEmpty() || edit_ubicacion.getText().toString().isEmpty() || edit_fechav.getText().toString().isEmpty()){
-            Toast.makeText(FormAlmacenar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
-        }else {
+            dialogo1.setTitle("FiF-ON");
+            dialogo1.setMessage("Hay Campos Vacios, Favor Llenar Formulario");
+            dialogo1.show();
+        }else
+       {
+           if (existe_ubicacion == "null" || existe_producto == "null") {
+               dialogo1.setTitle("FiF-ON");
+               dialogo1.setMessage("Producto o Ubicacion no existe, favor agregar datos existentes");
+               dialogo1.show();
+           }else {
+               if (validar_ubi.isEmpty()) {
+                   correcto_ubi.setVisibility(View.VISIBLE);
+                   incorrecto_ubi.setVisibility(View.INVISIBLE);
+                   String produ = edit_producto.getText().toString();
+                   String ubi = edit_ubicacion.getText().toString();
+                   String fechav = edit_fechav.getText().toString();
 
-            if ( validar_ubi.isEmpty()) {
-                correcto_ubi.setVisibility(View.VISIBLE);
-                incorrecto_ubi.setVisibility(View.INVISIBLE);
-                String produ = edit_producto.getText().toString();
-                String ubi = edit_ubicacion.getText().toString();
-                String fechav = edit_fechav.getText().toString();
+                   String parametros = "producto=" + produ + "&ubicacion=" + ubi + "&fechav=" + fechav + "&usuario=" + param;
+                   cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
+                       @Override
+                       public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                           if (statusCode == 200) {
+                               dialogo1.setTitle("FiF-ON");
+                               dialogo1.setMessage("Registro Agregado Correctamente \nProducto: " + edit_producto.getText().toString() + " \nUbicacion: " + edit_ubicacion.getText().toString() + " \nF.Venc: " + edit_fechav.getText().toString());
+                               dialogo1.show();
+                               edit_fechav.setText("");
+                               edit_producto.setText("");
+                               edit_ubicacion.setText("");
+                           }
+                       }
 
-                String parametros = "producto=" + produ + "&ubicacion=" + ubi + "&fechav=" + fechav + "&usuario=" + param;
-                cliente.get(ALMA_URL + parametros, new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        if (statusCode == 200) {
-                            Toast.makeText(FormAlmacenar.this, "Registro Agregado Correctamente", Toast.LENGTH_SHORT).show();
-                            edit_fechav.setText("");
-                            edit_producto.setText("");
-                            edit_ubicacion.setText("");
-                        }
-                    }
+                       @Override
+                       public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-                    }
-                });
-            } else
-            {
-                incorrecto_ubi.setVisibility(View.VISIBLE);
-                correcto_ubi.setVisibility(View.INVISIBLE);
-                Toast.makeText(this, "Ubicación Ocupada.", Toast.LENGTH_SHORT).show();
-            }
+                       }
+                   });
+               } else {
+                   incorrecto_ubi.setVisibility(View.VISIBLE);
+                   correcto_ubi.setVisibility(View.INVISIBLE);
+                   dialogo1.setTitle("FiF-ON");
+                   dialogo1.setMessage("La ubicacion mencionada esta ocupada");
+                   dialogo1.show();
+               }
+           }
         }
 }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -276,6 +290,41 @@ public class FormAlmacenar extends AppCompatActivity {
         }catch (Exception e1)
         {e1.printStackTrace();}
     }
+
+
+    private void Validacion()
+    {
+        String ubicar = edit_ubicacion.getText().toString();
+        String url = "http://35.226.157.199/JSON/ValidarAlmacenar.php?";
+        String parametros ="ubicacion="+ubicar+"&usuario="+ param+"&producto="+edit_producto.getText().toString();
+        cliente2.get(url+parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200)
+                {
+                    Validar(new String (responseBody));
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
+    }
+
+    private void Validar(String respuesta){
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i <jsonArreglo.length(); i++){
+                existe_ubicacion = jsonArreglo.getJSONObject(i).getString("Ubicacion");
+                existe_producto = jsonArreglo.getJSONObject(i).getString("Producto");
+            }
+            obtenerConsulta();
+        }catch (Exception e1)
+        {e1.printStackTrace();}
+    }
+
 
 
 
