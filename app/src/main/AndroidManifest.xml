@@ -16,59 +16,64 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".welco0activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welco0activity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".welco1activity"
+        <activity
+            android:name=".welco1activity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".welco2activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welco2activity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".welco3activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".welco3activity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Menuoperador"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Menuoperador"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".FormAlmacenar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormAlmacenar"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".FormMover"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormMover"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".form_consultar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".form_consultar"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".form_Salida"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".form_Salida"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".MenuSidebarOperador"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuSidebarOperador"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".exportarexcel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".exportarexcel"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UbicacionesDispon"
+            android:label="@string/title_activity_ubicaciones_dispon"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

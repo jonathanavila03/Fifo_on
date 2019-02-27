@@ -7,6 +7,32 @@
     android:background="@drawable/menusidebar_background"
     tools:context=".MenuSidebarOperador">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnexportarexcel"
+        app:srcCompat="@drawable/imgexport" />
+
+    <Button
+        android:id="@+id/btnUbiDisponible"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="185dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Ubicaciones disponibles"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColorLink="@color/color_link"
+        android:theme="@style/FlatButton"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/btnexportarexcel" />
+
     <Button
         android:id="@+id/btnsidebarout"
         android:layout_width="28dp"
