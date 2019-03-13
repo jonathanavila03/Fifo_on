@@ -7,21 +7,11 @@
     android:background="@drawable/backgroundmasterform"
     tools:context=".form_consultar">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="37dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconologo" />
-
     <TextView
         android:id="@+id/textViewAlmacenar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/ubuntubold"
         android:text="Consultar mercadería"
         android:textColor="@android:color/background_light"

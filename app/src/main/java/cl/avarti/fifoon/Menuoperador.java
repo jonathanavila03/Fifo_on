@@ -9,10 +9,20 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class Menuoperador extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +34,9 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
     private static final int MY_PERMISSIONS_REQUEST_INTERNET = 1;
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+    private AsyncHttpClient cliente;
+    String usuario_texto;
+    private TextView datoalmacen;
 
 
 
@@ -31,7 +44,7 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menuoperador);
-
+        cliente = new AsyncHttpClient();
         Button btn_alma = (Button)findViewById(R.id.btn_almacenar);
         Button btn_mover = (Button)findViewById(R.id.btn_mover);
         Button btn_consultar = (Button)findViewById(R.id.btn_consultar);
@@ -41,10 +54,12 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
         btn_mover.setOnClickListener(this);
         btn_salida.setOnClickListener(this);
         datologin = (TextView)findViewById(R.id.parametrologin);
+        datoalmacen = (TextView) findViewById(R.id.textViewsantamartax);
         btnsidebar = (Button)findViewById(R.id.btnsidebarin);
 
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String dato = getIntent().getStringExtra("dato");
+        usuario_texto = dato;
         String parametroActivity = getIntent().getStringExtra("parametro");
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + dato);
@@ -57,6 +72,8 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
                 startActivity(abc);
             }
         });
+
+        obtenerConsulta();
 
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
@@ -184,7 +201,6 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
                 // result of the request.
             }
         }
-
     }
     public void onClick(View v)
     {
@@ -212,6 +228,44 @@ public class Menuoperador extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("param",getIntent().getStringExtra("dato"));
             startActivity(intent);
         }
+    }
+
+    private void obtenerConsulta()
+    {
+            String url = "http://35.226.157.199/JSON/obtenerAlmacen.php?";
+            String parametros ="usr="+usuario_texto;
+
+
+            cliente.get(url+parametros, new AsyncHttpResponseHandler() {
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    if (statusCode == 200)
+                    {
+                        obtenerAlmacen(new String (responseBody));
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                }
+            });
+        }
+
+
+    private void obtenerAlmacen(String respuesta){
+        ArrayList<String> lista = new ArrayList<String>();
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i <jsonArreglo.length(); i++){
+              String dato =  jsonArreglo.getJSONObject(i).getString("Almacen");
+
+                datoalmacen.setText(dato);
+            }
+
+        }catch (Exception e1)
+        {e1.printStackTrace();}
     }
 
     @Override
