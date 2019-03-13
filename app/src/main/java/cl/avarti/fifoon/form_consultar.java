@@ -29,6 +29,7 @@ public class form_consultar extends AppCompatActivity {
     EditText producto;
     Button consultar;
     String param;
+    String usuario_texto;
     String validar_ubi;
     private TextView datologin;
     private static final int REQ_CODE_SPEECH_INPUT = 101;
@@ -44,6 +45,8 @@ public class form_consultar extends AppCompatActivity {
         datologin = (TextView)findViewById(R.id.parametrologinconsul);
         //TRAER DATO USUARIO LOGIN A ESTE ACTIVITY
         String param = getIntent().getStringExtra("param");
+
+        usuario_texto = param;
         //INSERTAR DATO OBTENIDO EN TEXTVIEW
         datologin.setText("Bienvenido: " + param);
         ubicacion = (EditText) findViewById(R.id.txt_ubi_consul);
@@ -71,7 +74,9 @@ public class form_consultar extends AppCompatActivity {
             Toast.makeText(form_consultar.this, "Hay Campos Vacios", Toast.LENGTH_SHORT).show();
         }else{
             String url = "http://35.226.157.199/JSON/obtenerDatos.php?";
-            String parametros ="producto="+ubicacion.getText().toString()+"&usr="+datologin;
+            String parametros ="producto="+ubicacion.getText().toString()+"&usr="+usuario_texto;
+
+
             cliente.get(url+parametros, new AsyncHttpResponseHandler() {
 
                 @Override
